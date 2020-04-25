@@ -2,17 +2,17 @@
 
 upload_sources() {
   echo "UPLOAD SOURCES";
-  crowdin upload sources ${CONFIG_OPTIONS} ${OPTIONS};
+  crowdin ${PRE_CONFIG_OPTIONS} upload sources ${CONFIG_OPTIONS} ${OPTIONS};
 }
 
 upload_translations() {
   echo "UPLOAD TRANSLATIONS";
-  crowdin upload translations ${CONFIG_OPTIONS} ${OPTIONS};
+  crowdin ${PRE_CONFIG_OPTIONS} upload translations ${CONFIG_OPTIONS} ${OPTIONS};
 }
 
 download_translations() {
   echo "DOWNLOAD TRANSLATIONS";
-  crowdin download ${CONFIG_OPTIONS} ${OPTIONS};
+  crowdin ${PRE_CONFIG_OPTIONS} download ${CONFIG_OPTIONS} ${OPTIONS};
 }
 
 create_pull_request() {
@@ -79,6 +79,7 @@ if [[ "$INPUT_DEBUG_MODE" = true ]]; then
   set -x;
 fi
 
+PRE_CONFIG_OPTIONS="";
 CONFIG_OPTIONS="";
 OPTIONS="--no-progress";
 
